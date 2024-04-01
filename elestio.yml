@@ -1,0 +1,38 @@
+ports:
+  - protocol: "HTTPS"
+    targetProtocol: "HTTP"
+    listeningPort: "24814"
+    targetPort: "8001"
+    targetIP: "172.17.0.1"
+    public: true
+    path: "/"
+    isAuth: true
+    login: "root"
+    password: "random_password"
+    loginTitle: "Redis Insight"
+environments:
+  - key: "SOFTWARE_VERSION_TAG"
+    value: "latest"
+  - key: SOFTWARE_PASSWORD
+    value: "random_password"
+  - key: ADMIN_PASSWORD
+    value: "random_password"
+  - key: DOMAIN
+    value: "[CI_CD_DOMAIN]"
+
+config:
+  runTime: "dockerCompose"
+  version: ""
+  framework: ""
+  buildCommand: "docker-compose build"
+  buildDir: "/"
+  runCommand: "docker-compose up -d"
+  icon: ""
+  screenshot: "keydb.jpg"
+lifeCycleConfig:
+  preInstallCommand: "./scripts/preInstall.sh"
+  postInstallCommand: "./scripts/postInstall.sh"
+  preBackupCommand: "./scripts/preBackup.sh"
+  postBackupCommand: "./scripts/postBackup.sh"
+  preRestoreCommand: "./scripts/preRestore.sh"
+  postRestoreCommand: "./scripts/postRestore.sh"

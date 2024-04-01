@@ -1,0 +1,21 @@
+services:
+  redis:
+    image: eqalpha/keydb:${SOFTWARE_VERSION_TAG}
+    command: keydb-server /etc/keydb/redis.conf --port 6379 --requirepass ${SOFTWARE_PASSWORD} ${CLUSTER_OPTIONS}
+    shm_size: "1g"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+      - ./keydb.conf:/etc/keydb/keydb.conf
+    restart: always
+    ports:
+      - "23647:6379"
+
+  redisinsight:
+    image: redislabs/redisinsight:1.12.0
+    restart: always
+    ports:
+      - "172.17.0.1:8001:8001"
+    volumes:
+      - ./insight:/db
