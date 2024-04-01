@@ -4,7 +4,7 @@
 
 Deploy KeyDB server with CI/CD on Elestio
 
-<img src="keydb.png" style='width: 100%;'/>
+<img src="keydb.jpg" style='width: 100%;'/>
 <br/>
 <br/>
 
