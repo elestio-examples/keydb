@@ -20,10 +20,10 @@ You can open Redis Insight UI here:
 
 You can connect to your server with any Redis client with those credentials:
 
-    Host: [DOMAIN]
+    Host: [CI_CD_DOMAIN]
     Port: 23647
     Password: [ADMIN_PASSWORD]
 
 You can also connect with any Redis client, including the official CLI:
 
-    redis-cli -h [DOMAIN] -p 23647 -a '[ADMIN_PASSWORD]'
+    redis-cli -h [CI_CD_DOMAIN] -p 23647 -a '[ADMIN_PASSWORD]'
