@@ -5,10 +5,10 @@ set -o allexport; source .env; set +o allexport;
 echo "Waiting for software to be ready ..."
 sleep 30s;
 
-   echo "redis-cli -h ${DOMAIN} -p 23647 -a ${SOFTWARE_PASSWORD}" > ./app/cli.sh
-   echo "redis-cli -h ${DOMAIN} -p 23647 -a ${SOFTWARE_PASSWORD} save" > ./app/save.sh
-   chmod +x ./app/cli.sh;
-   chmod +x ./app/save.sh;
+   echo "redis-cli -h ${DOMAIN} -p 23647 -a ${SOFTWARE_PASSWORD}" > ./cli.sh
+   echo "redis-cli -h ${DOMAIN} -p 23647 -a ${SOFTWARE_PASSWORD} save" > ./save.sh
+   chmod +x ./cli.sh;
+   chmod +x ./save.sh;
 
 sleep 10s;
 
