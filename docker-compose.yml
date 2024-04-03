@@ -1,7 +1,7 @@
 services:
   redis:
     image: eqalpha/keydb:${SOFTWARE_VERSION_TAG}
-    command: keydb-server /etc/keydb/redis.conf --port 6379 --requirepass ${SOFTWARE_PASSWORD} ${CLUSTER_OPTIONS}
+    command: keydb-server /etc/keydb/redis.conf --port 6379 --requirepass ${SOFTWARE_PASSWORD} ${CLUSTER_OPTIONS} #--tls-port 6380 --port 6379 --tls-ca-cert-file /data/ca.crt --tls-cert-file /data/redis.crt --tls-key-file /data/redis.key
     shm_size: "1g"
     env_file:
       - .env
@@ -11,6 +11,7 @@ services:
     restart: always
     ports:
       - "23647:6379"
+      - "6380:6380"
 
   redisinsight:
     image: redislabs/redisinsight:1.12.0
