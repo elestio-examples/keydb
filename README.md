@@ -26,6 +26,8 @@ You can connect to your server with any Redis client with those credentials:
 
 You can also connect with any Redis client, including the official CLI:
 
+To connect via SSL, you need to add the certificates manually. You can find them by clicking on the 'File Explorer' button in the 'Tools' tab on the platform: Here the path to find all certificates: /opt/app/data/
+
     With SSL: redis-cli -h [CI_CD_DOMAIN] -p 6380 --tls --cert redis.crt --key redis.key --cacert ca.crt -a '[APP_PASSWORD]'
 
     Without SSL: redis-cli -h [CI_CD_DOMAIN] -p 23647 -a '[ADMIN_PASSWORD]'
